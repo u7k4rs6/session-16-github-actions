@@ -23,9 +23,7 @@ jobs:
           python-version: "3.x"
 
       - name: Install dependencies
-        working-directory: session-16-github-actions
         run: python -m pip install -r requirements.txt
 
       - name: Run tests
-        working-directory: session-16-github-actions
         run: python -m pytest -q
