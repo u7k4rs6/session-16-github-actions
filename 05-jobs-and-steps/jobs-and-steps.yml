@@ -1,0 +1,23 @@
+name: Jobs and steps demo
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Run a test step
+        run: echo "Tests passed"
+
+  package:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Package application
+        run: echo "Packaging after test job"
